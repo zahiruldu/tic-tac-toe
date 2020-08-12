@@ -19,6 +19,12 @@ module.exports = {
     Atomics: 'readonly',
     SharedArrayBuffer: 'readonly',
   },
+  settings: {
+    react: {
+      pragma: 'React',
+      version: 'detect'
+    }
+  },
   parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaFeatures: {
@@ -36,6 +42,5 @@ module.exports = {
     }],
     '@typescript-eslint/camelcase': 'off',
     'no-prototype-builtins': 'off',
-
   },
 };

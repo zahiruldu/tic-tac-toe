@@ -1,0 +1,22 @@
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.item {
+  flex: 0 32%;
+  height: 100px;
+  margin-bottom: 2%;
+  background-color: bisque;
+  text-align: center;
+}
+
+.playbox {
+  font-size: x-large;
+  position: relative;
+  float: left;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}

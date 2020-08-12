@@ -1,26 +1,21 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Provider } from 'react-redux';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+import configureStore from './state/store';
+
+import Game from './views/containers/Game';
+
+const initialState = {};
+
+const store = configureStore(initialState);
+
+const App: React.FC = () => {
+	return (
+		<Provider store={store}>
+			<Game />
+		</Provider>
+	);
+};
 
 export default App;
