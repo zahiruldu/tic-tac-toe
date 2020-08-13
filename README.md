@@ -32,21 +32,22 @@ yarn start
 
 The application will sart listening to default port 3000. Browse Url : http://localhost:3000
 
-###Test
+### Test
 To test the application run the following command
 
 ```
 yarn test
 ```
 
-###Linter test
+### Linter test
 To check linter, run the following command
 
 ```
 yarn lint
 ```
 
-###Build the project
+### Build
+Build the project with following command
 
 ```
 yarn build
