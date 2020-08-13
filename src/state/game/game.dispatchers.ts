@@ -24,7 +24,7 @@ const initiateNewGame = (payload: SessionIdType) => async (dispatch: Dispatch): 
 		}
 	} catch (error) {
 		// Dispatch fail action
-		dispatch(createGameActions.createGameRequestFail(error?.data)); // TODO: To ccheck
+		dispatch(createGameActions.createGameRequestFail(error));
 	}
 };
 
@@ -43,7 +43,7 @@ const updateGame = (payload: GamePlayPayload) => async (dispatch: Dispatch): Pro
 		}
 	} catch (error) {
 		// Dispatch fail action
-		dispatch(updateGameActions.updateGameRequestFail(error?.data)); // TODO: to check response error
+		dispatch(updateGameActions.updateGameRequestFail(error));
 	}
 };
 

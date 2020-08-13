@@ -12,6 +12,7 @@ const initialState: GameStateRedux = {
 	},
 };
 
+// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 const playerReducer = (state: GameStateRedux = initialState, action: any) => {
 	switch (action.type) {
 		case CREATE_GAME.REQUEST_START:
