@@ -73,7 +73,9 @@ class Game extends Component<GameProps, GameState> {
 		const unWiningGame = isUnWinnable(board, ['x', 'o']);
 
 		return (
-			<div>
+			<div className='game-container'>
+				<h1>Tic Tac Toe</h1>
+				<p> Winning Logic by crosses</p>
 				{unWiningGame ? (
 					<div className='congrats'>
 						None can win!

@@ -1,3 +1,9 @@
+.game-container {
+  max-width: 500px;
+  float: none;
+  margin: 0 auto;
+}
+
 .congrats {
   text-align: center;
   font-size: 25px;
