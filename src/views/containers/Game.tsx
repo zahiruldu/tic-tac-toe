@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import Board from '../components/Board';
 import { GameProps, GameState } from './Game.types';
 import Generator from '../../services/generator';
-import isWinner from '../../services/winner';
+import { isWinner, isUnWinnable } from '../../services/winner';
 import initiateNewGame from '../../state/game/game.dispatchers';
 import { GamePlayPayload } from '../../state/game';
 import { GamePlayInfo } from '../../HTTP/game/game.types';
@@ -70,9 +70,21 @@ class Game extends Component<GameProps, GameState> {
 		const { player } = this.state;
 		const lastPlayer = player === 'x' ? 'o' : 'x';
 		const winner = isWinner(board, lastPlayer);
+		const unWiningGame = isUnWinnable(board, ['x', 'o']);
 
 		return (
 			<div>
+				{unWiningGame ? (
+					<div className='congrats'>
+						None can win!
+						<hr />
+						<button type='button' onClick={this.satrtNewgame}>
+							Start New again
+						</button>
+					</div>
+				) : (
+					''
+				)}
 				{winner ? (
 					<div className='congrats'>
 						Congratulation! <strong>{lastPlayer}</strong> Won!
