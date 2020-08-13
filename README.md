@@ -1,3 +1,59 @@
+# Tic-Tac-Toe Game
+
+Tic Tac Toe front-end app.
+
+### What is this repository for?
+
+This is a Tic Tac Toe game built in react typescript with server-side
+
+### Installation?
+
+To run the application follow the following steps.
+
+-   Configuration
+
+```
+git clone https://github.com/zahiruldu/tic-tac-toe.git tictactoe
+cd tictactoe
+yarn install
+```
+
+Add `.env` setting renaming `.env.example` to `.env`
+
+```
+REACT_APP_API_BASE_URL=http://localhost:8080 // Backend API url
+```
+
+Run the project
+
+```
+yarn start
+```
+
+The application will sart listening to default port 3000. Browse Url : http://localhost:3000
+
+###Test
+To test the application run the following command
+
+```
+yarn test
+```
+
+###Linter test
+To check linter, run the following command
+
+```
+yarn lint
+```
+
+###Build the project
+
+```
+yarn build
+```
+
+For more help see the following information
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
