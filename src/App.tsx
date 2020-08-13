@@ -7,10 +7,6 @@ import { store, persistor } from './state/store';
 
 import Game from './views/containers/Game';
 
-// const initialState = {};
-
-// const store = configureStore(initialState);
-
 const App: React.FC = () => {
 	return (
 		<Provider store={store}>
