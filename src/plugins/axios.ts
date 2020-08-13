@@ -12,7 +12,7 @@ const http = Axios.create({
 http.interceptors.request.use(async (request) => {
 	request.headers = {
 		...request.headers,
-		Authorization: `Bearer sessionId`,
+		Authorization: `Bearer token`,
 	};
 
 	return request;

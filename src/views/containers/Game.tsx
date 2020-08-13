@@ -40,7 +40,7 @@ class Game extends Component<GameProps, GameState> {
 	play = async (playBox: any): Promise<void> => {
 		const position = playBox.value;
 		const { player } = this.state;
-		const { updateGame, gamePlay } = this.props;
+		const { updateGame, gamePlay, board } = this.props;
 
 		const {
 			data: { sessionId },
@@ -56,10 +56,13 @@ class Game extends Component<GameProps, GameState> {
 			data: obj,
 		};
 
-		updateGame(payload);
-
-		const newPlayer = player === 'x' ? 'o' : 'x';
-		this.setState({ player: newPlayer });
+		// If already played the box
+		const isValueExist = board[position];
+		if (!isValueExist) {
+			updateGame(payload);
+			const newPlayer = player === 'x' ? 'o' : 'x';
+			this.setState({ player: newPlayer });
+		}
 	};
 
 	render(): ReactElement {
