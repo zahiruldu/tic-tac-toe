@@ -11,7 +11,8 @@ export type GamePayload = {
 	_id: string;
 	board: string[];
 	status: string;
-	sessionId: string;
+	sessionId: SessionIdType;
+	lastPlayer: string;
 };
 
 export type GamePlayPayload = {

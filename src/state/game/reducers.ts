@@ -1,3 +1,4 @@
+import { AnyAction } from 'redux';
 // eslint-disable-next-line import/no-cycle
 import { UPDATE_GAME, CREATE_GAME } from './actionTypes';
 
@@ -13,7 +14,7 @@ const initialState: GameStateRedux = {
 };
 
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
-const playerReducer = (state: GameStateRedux = initialState, action: any) => {
+const playerReducer = (state: GameStateRedux = initialState, action: AnyAction) => {
 	switch (action.type) {
 		case CREATE_GAME.REQUEST_START:
 			// eslint-disable-next-line no-param-reassign

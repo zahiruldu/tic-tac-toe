@@ -18,7 +18,6 @@ class Game extends Component<GameProps, GameState> {
 
 	componentDidMount() {
 		const { gamePlay } = this.props;
-
 		const sessId = gamePlay?.data?.sessionId;
 
 		if (sessId === undefined) {
@@ -37,6 +36,7 @@ class Game extends Component<GameProps, GameState> {
 		startGame(sessionId);
 	};
 
+	// eslint-disable-next-line @typescript-eslint/no-explicit-any
 	play = async (playBox: any): Promise<void> => {
 		const position = playBox.value;
 		const { player } = this.state;
