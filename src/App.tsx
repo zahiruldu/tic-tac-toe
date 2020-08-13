@@ -1,19 +1,22 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React from 'react';
 import { Provider } from 'react-redux';
+import { PersistGate } from 'redux-persist/integration/react';
 
-import configureStore from './state/store';
+import { store, persistor } from './state/store';
 
 import Game from './views/containers/Game';
 
-const initialState = {};
+// const initialState = {};
 
-const store = configureStore(initialState);
+// const store = configureStore(initialState);
 
 const App: React.FC = () => {
 	return (
 		<Provider store={store}>
-			<Game />
+			<PersistGate loading={null} persistor={persistor}>
+				<Game />
+			</PersistGate>
 		</Provider>
 	);
 };

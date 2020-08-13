@@ -13,23 +13,38 @@ import { GamePlayInfo } from '../../HTTP/game/game.types';
 class Game extends Component<GameProps, GameState> {
 	// eslint-disable-next-line react/state-in-constructor
 	state = {
-		player: 'x',
-		sessionId: '',
+		player: '',
 	};
 
 	componentDidMount() {
-		const sessionId = Generator.randomId();
-		const { startGame } = this.props;
+		const { gamePlay } = this.props;
 
-		startGame(sessionId);
+		const sessId = gamePlay?.data?.sessionId;
 
-		this.setState({ sessionId });
+		if (sessId === undefined) {
+			this.satrtNewgame();
+			this.setState({ player: 'x' });
+		} else {
+			const lastPlayer = gamePlay?.data?.lastPlayer;
+			const newPlayer = lastPlayer === 'x' ? 'o' : 'x';
+			this.setState({ player: newPlayer });
+		}
 	}
 
-	play = async (data: any): Promise<void> => {
-		const position = data.value;
-		const { player, sessionId } = this.state;
-		const { updateGame } = this.props;
+	satrtNewgame = (): void => {
+		const sessionId = Generator.randomId();
+		const { startGame } = this.props;
+		startGame(sessionId);
+	};
+
+	play = async (playBox: any): Promise<void> => {
+		const position = playBox.value;
+		const { player } = this.state;
+		const { updateGame, gamePlay } = this.props;
+
+		const {
+			data: { sessionId },
+		} = gamePlay;
 
 		const obj: GamePlayInfo = {
 			player,
@@ -58,6 +73,10 @@ class Game extends Component<GameProps, GameState> {
 				{winner ? (
 					<div className='congrats'>
 						Congratulation! <strong>{lastPlayer}</strong> Won!
+						<hr />
+						<button type='button' onClick={this.satrtNewgame}>
+							Start New
+						</button>
 					</div>
 				) : (
 					<span>
